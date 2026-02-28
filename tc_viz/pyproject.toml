@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "tc-viz"
+version = "0.1.0"
+description = "Tropical cyclone track and wind radii visualization from IBTrACS data"
+requires-python = ">=3.10"
+license = {text = "BSD-3-Clause"}
+dependencies = [
+    "pandas",
+    "matplotlib",
+    "cartopy",
+    "tropycal",
+    "numpy",
+]
+
+[project.scripts]
+tc-viz = "tc_viz.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
