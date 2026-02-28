@@ -69,12 +69,13 @@ tc_viz/
 | `plot_track(track, storm_name, output_path)` | Generates the full track map with wind radii and annotations |
 | `draw_wind_radii_arcs(xcenter, ycenter, radii, ax)` | Draws quadrant wind radii arcs around a storm center point |
 
+## Comparison with tropycal
+
+[tropycal](https://tropycal.github.io/tropycal/) is a general-purpose tropical cyclone analysis library covering climatology, seasonal analysis, NHC forecasts, reconnaissance data, and more. While both packages read IBTrACS data and use Cartopy for map projections, tc-viz focuses specifically on rendering detailed quadrant wind radii arcs (34/50/64 kt) per track point with time, wind speed, and pressure annotations for NOAA reporting. It reads IBTrACS directly without abstraction layers, making the code transparent and easy to adapt.
+
 ## Notes
 
 - IBTrACS 2021 data has incomplete WMO fields; use `--no-filter-wmo` or `filter_missing_wmo=False` for that year
 - Wind radii values (nautical miles) are scaled by a divisor (default: 70) to convert to plot units — adjust `--radius-scale` if arcs appear too large or too small
 - All colors, marker styles, and layout defaults can be overridden via `config.py` or function arguments
 - The IBTrACS CSV file must follow the standard `ibtracs.ALL.list.v04r00.csv` format
-
-
-
